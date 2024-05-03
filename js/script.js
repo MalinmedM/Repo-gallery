@@ -2,6 +2,8 @@
 const overview = document.querySelector(".overview");
 //My github username
 const username = "MalinmedM";
+//Unordered list to display the repos list
+const reposList = document.querySelector(".repos-list")
 
 const fetchMyInfo = async function(){
     const request = await fetch(`https://api.github.com/users/${username}`);
@@ -29,3 +31,12 @@ const showMyInfo = function(data) {
         `;
         overview.append(div);
 };
+
+//fetching repos
+const fetchRepos = async function() {
+    const repos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
+    const repodata = await repos.json();
+    console.log(repodata);
+};
+
+fetchRepos();
