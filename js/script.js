@@ -4,6 +4,10 @@ const overview = document.querySelector(".overview");
 const username = "MalinmedM";
 //Unordered list to display the repos list
 const reposList = document.querySelector(".repo-list")
+//Where all my repo information appears
+const repoSection = document.querySelector(".repos");
+//Where the individual repo data will appear
+const uniqueRepoData = document.querySelector(".repo-data");
 
 const fetchMyInfo = async function(){
     const request = await fetch(`https://api.github.com/users/${username}`);
