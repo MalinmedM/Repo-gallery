@@ -43,11 +43,11 @@ const fetchRepos = async function() {
     const repos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
     const repodata = await repos.json();
     //console.log(repodata);
-    repoInfo(repodata);
+    displayRepoInfo(repodata);
 };
 
 //Display info about my repos
-const repoInfo = function(repos) {
+const displayRepoInfo = function(repos) {
     for (const repo of repos) {
         const repoItem = document.createElement("li");
         repoItem.classList.add("repo");
@@ -59,6 +59,12 @@ const repoInfo = function(repos) {
 reposList.addEventListener("click", function(e) {
     if (e.target.matches("h3")) {
         const repoName = e.target.innerText;
-        console.log(repoName);
+        specificRepoInfo(repoName);
     }
 });
+
+const specificRepoInfo = async function(repoName) {
+    const specificInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
+    const repoInfo = await specificInfo.json();
+    console.log(repoInfo);
+};
