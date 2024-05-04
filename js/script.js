@@ -55,7 +55,7 @@ const displayRepoInfo = function(repos) {
         reposList.append(repoItem);
     }
 };
-
+//Event listener for clicking each repo-button
 reposList.addEventListener("click", function(e) {
     if (e.target.matches("h3")) {
         const repoName = e.target.innerText;
@@ -63,8 +63,20 @@ reposList.addEventListener("click", function(e) {
     }
 });
 
+//Function to get specific Repo Info
 const specificRepoInfo = async function(repoName) {
     const specificInfo = await fetch(`https://api.github.com/repos/${username}/${repoName}`);
     const repoInfo = await specificInfo.json();
     console.log(repoInfo);
+    //Grab languages
+    const fetchLanguages = await fetch(`https://api.github.com/repos/MalinmedM/Jubilee-Austen/languages`);
+    const languageData = await fetchLanguages.json();
+    console.log(languageData);
+
+    //Putting languages in array
+    const languages = [];
+    for (let language in languageData) {
+        languages.push(language);
+    }
+    console.log(languages);
 };
