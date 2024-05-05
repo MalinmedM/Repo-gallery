@@ -80,3 +80,18 @@ const specificRepoInfo = async function(repoName) {
     }
     console.log(languages);
 };
+
+//Function to display specific repo info
+const displaySpecificInfo = function(repoInfo, languages) {
+    uniqueRepoData.innerHTML = "";
+    let div = document.createElement("div");
+    uniqueRepoData.classList.remove("hide");
+    repoSection.classList.add("hide");
+
+    div.innerHTML = `<h3>Name: ${repoInfo.name}</h3>
+    <p>Description: ${repoInfo.description}</p>
+    <p>Default Branch: ${repoInfo.default_branch}</p>
+    <p>Languages: ${languages.join(", ")}</p>
+    <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
+    uniqueRepoData.append(div);
+};
