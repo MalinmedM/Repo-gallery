@@ -78,7 +78,7 @@ const specificRepoInfo = async function(repoName) {
     for (let language in languageData) {
         languages.push(language);
     }
-    console.log(languages);
+    displaySpecificInfo(repoInfo, languages);
 };
 
 //Function to display specific repo info
