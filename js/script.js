@@ -4,10 +4,14 @@ const overview = document.querySelector(".overview");
 const username = "MalinmedM";
 //Unordered list to display the repos list
 const reposList = document.querySelector(".repo-list")
-//Where all my repo information appears
+//Where all my repos appear
 const repoSection = document.querySelector(".repos");
 //Where the individual repo data will appear
 const uniqueRepoData = document.querySelector(".repo-data");
+//Back to Repo Gallery-button
+const viewReposButton = document.querySelector(".view-repos");
+//Selects innput with Search By Name placeholder
+const filterInput = document.querySelector(".filter-repos");
 
 const fetchMyInfo = async function(){
     const request = await fetch(`https://api.github.com/users/${username}`);
@@ -85,8 +89,6 @@ const specificRepoInfo = async function(repoName) {
 const displaySpecificInfo = function(repoInfo, languages) {
     uniqueRepoData.innerHTML = "";
     let div = document.createElement("div");
-    uniqueRepoData.classList.remove("hide");
-    repoSection.classList.add("hide");
 
     div.innerHTML = `<h3>Name: ${repoInfo.name}</h3>
     <p>Description: ${repoInfo.description}</p>
@@ -94,4 +96,6 @@ const displaySpecificInfo = function(repoInfo, languages) {
     <p>Languages: ${languages.join(", ")}</p>
     <a class="visit" href="${repoInfo.html_url}" target="_blank" rel="noreferrer noopener">View Repo on GitHub!</a>`;
     uniqueRepoData.append(div);
+    uniqueRepoData.classList.remove("hide");
+    repoSection.classList.add("hide");
 };
