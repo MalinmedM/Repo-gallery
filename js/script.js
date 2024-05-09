@@ -73,7 +73,7 @@ const specificRepoInfo = async function(repoName) {
     const repoInfo = await specificInfo.json();
     console.log(repoInfo);
     //Grab languages
-    const fetchLanguages = await fetch(`https://api.github.com/repos/MalinmedM/Jubilee-Austen/languages`);
+    const fetchLanguages = await fetch(`repoInfo.languages_url`);
     const languageData = await fetchLanguages.json();
     console.log(languageData);
 
