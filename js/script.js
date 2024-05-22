@@ -98,4 +98,11 @@ const displaySpecificInfo = function(repoInfo, languages) {
     uniqueRepoData.append(div);
     uniqueRepoData.classList.remove("hide");
     repoSection.classList.add("hide");
+    viewReposButton.classList.remove("hide");
 };
+
+viewReposButton.addEventListener("click", function() {
+    repoSection.classList.remove("hide");
+    uniqueRepoData.classList.add("hide");
+    viewReposButton.classList.add("hide");
+})
