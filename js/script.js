@@ -52,6 +52,7 @@ const fetchRepos = async function() {
 
 //Display info about my repos
 const displayRepoInfo = function(repos) {
+    filterInput.classList.remove("hide");
     for (const repo of repos) {
         const repoItem = document.createElement("li");
         repoItem.classList.add("repo");
