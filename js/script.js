@@ -107,3 +107,17 @@ viewReposButton.addEventListener("click", function() {
     uniqueRepoData.classList.add("hide");
     viewReposButton.classList.add("hide");
 })
+
+filterInput.addEventListener("input", function(e) {
+    const searchValue = e.target.value;
+    const repos = document.querySelectorAll(".repo");
+    const searchLowercase = searchValue.toLowerCase();
+    for (const repo of repos) {
+        const repoLowercase = repo.innerText.toLowerCase();
+        if (repoLowercase.includes(searchLowercase)) {
+            repo.classList.remove("hide");
+        } else {
+            repo.classList.add("hide");
+        }
+    }
+})
