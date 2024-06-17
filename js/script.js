@@ -120,4 +120,4 @@ filterInput.addEventListener("input", function(e) {
             repo.classList.add("hide");
         }
     }
-})
+});
