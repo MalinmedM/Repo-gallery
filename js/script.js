@@ -10,9 +10,10 @@ const repoSection = document.querySelector(".repos");
 const uniqueRepoData = document.querySelector(".repo-data");
 //Back to Repo Gallery-button
 const viewReposButton = document.querySelector(".view-repos");
-//Selects innput with Search By Name placeholder
+//Selects input with Search By Name placeholder
 const filterInput = document.querySelector(".filter-repos");
 
+//Async function to fetch user data
 const fetchMyInfo = async function(){
     const request = await fetch(`https://api.github.com/users/${username}`);
     const data = await request.json();
