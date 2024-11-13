@@ -23,7 +23,7 @@ const fetchMyInfo = async function(){
 
 fetchMyInfo();
 
-//Function to display user data
+//Function to display user info
 const showMyInfo = function(data) {
     const div = document.createElement("div");
     div.classList.add("user-info");
