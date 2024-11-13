@@ -42,7 +42,7 @@ const showMyInfo = function(data) {
         fetchRepos();
 };
 
-//fetching repos
+//Function for fetching repos
 const fetchRepos = async function() {
     //Found here: https://docs.github.com/en/rest/repos/repos#list-repositories-for-a-user
     const repos = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=100`);
@@ -51,14 +51,14 @@ const fetchRepos = async function() {
     displayRepoInfo(repodata);
 };
 
-//Display info about my repos
+//Display info about each repo
 const displayRepoInfo = function(repos) {
     filterInput.classList.remove("hide");
     for (const repo of repos) {
-        const repoItem = document.createElement("li");
-        repoItem.classList.add("repo");
-        repoItem.innerHTML = `<h3>${repo.name}</h3>`;
-        reposList.append(repoItem);
+        const listItem = document.createElement("li");
+        listItem.classList.add("repo");
+        listItem.innerHTML = `<h3>${repo.name}</h3>`;
+        reposList.append(listItem);
     }
 };
 //Event listener for clicking each repo-button
