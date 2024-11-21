@@ -61,6 +61,7 @@ const displayRepoInfo = function(repos) {
         reposList.append(listItem);
     }
 };
+
 //Event listener for clicking each repo-button
 reposList.addEventListener("click", function(e) {
     if (e.target.matches("h3")) {
